@@ -1,14 +1,17 @@
-const express = require('express');
+const webpackDevMiddleware = require('webpack-dev-middleware')
+const webpackConfig = require('./webpack.config')
+const webpack = require('webpack')
+const express = require('express')
+const path = require('path')
 
-const app = express();
+const app = express()
+const compiler = webpack(webpackConfig)
+const port = 3000
 
-//app.use(express.static('public')
+app.use(express.static(path.join(__dirname, '/www')))
 
-//ROUTS 
-app.get("/" , (request , response) => {
-    response.send('We are at home');
-});
 
-//listen to the server.
-app.listen(3000);
+app.listen(port, () => {
+  console.log('We are at Home');
+})
 
