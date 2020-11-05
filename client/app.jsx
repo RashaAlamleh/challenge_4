@@ -139,7 +139,7 @@ class App extends React.Component {
   componentWillMount() {
     this.initBoard();
   }
-  render() {
+    render() {
     return (
       <div>
         <div className="button" onClick={() => {this.initBoard()}}>New Game</div>
